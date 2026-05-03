@@ -63,10 +63,10 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
 
       <main className="max-w-7xl mx-auto px-6 py-8">
         {!activeModule && <DashboardOverview setActiveModule={setActiveModule} />}
-        {activeModule === 'campusData' && <CampusDataModule />}
-        {activeModule === 'biblio' && <BiblioModule />}
-        {activeModule === 'campusLife' && <CampusLifeModule />}
-        {activeModule === 'info' && <InfoModule />}
+        {activeModule === 'campusData' && <CampusDataModule onBack={() => setActiveModule(null)} />}
+        {activeModule === 'biblio' && <BiblioModule onBack={() => setActiveModule(null)} />}
+        {activeModule === 'campusLife' && <CampusLifeModule onBack={() => setActiveModule(null)} />}
+        {activeModule === 'info' && <InfoModule onBack={() => setActiveModule(null)} />}
       </main>
     </div>
   );
@@ -139,11 +139,15 @@ function DashboardOverview({ setActiveModule }: { setActiveModule: (module: Modu
   );
 }
 
-function CampusDataModule() {
+function CampusDataModule({ onBack }: { onBack: () => void }) {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   return (
     <div className="space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-orange-600 font-semibold hover:underline mb-4">
+        <ArrowLeft className="w-4 h-4" />
+        Retour au tableau de bord
+      </button>
       <div className="bg-white rounded-xl p-6 shadow-sm">
         <h2 className="text-2xl font-bold mb-6">Forfaits Campus Data</h2>
 
@@ -232,7 +236,7 @@ function CampusDataModule() {
   );
 }
 
-function BiblioModule() {
+function BiblioModule({ onBack }: { onBack: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const books = [
@@ -246,6 +250,10 @@ function BiblioModule() {
 
   return (
     <div className="space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-blue-600 font-semibold hover:underline mb-4">
+        <ArrowLeft className="w-4 h-4" />
+        Retour au tableau de bord
+      </button>
       <div className="bg-white rounded-xl p-6 shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -327,7 +335,7 @@ function BiblioModule() {
   );
 }
 
-function CampusLifeModule() {
+function CampusLifeModule({ onBack }: { onBack: () => void }) {
   const restaurants = [
     { name: 'Restaurant Universitaire Central', location: 'Campus Nord', distance: '200m', price: 1000, rating: 4.5 },
     { name: 'Chez Mama Africa', location: 'Entrée principale', distance: '350m', price: 1000, rating: 4.7 },
@@ -339,6 +347,10 @@ function CampusLifeModule() {
 
   return (
     <div className="space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-green-600 font-semibold hover:underline mb-4">
+        <ArrowLeft className="w-4 h-4" />
+        Retour au tableau de bord
+      </button>
       <div className="bg-white rounded-xl p-6 shadow-sm">
         <h2 className="text-2xl font-bold mb-2">Campus Life - Restaurants Partenaires</h2>
         <p className="text-gray-600 mb-6">Payez avec Orange Money et bénéficiez d'un cashback de 1%</p>
@@ -416,11 +428,15 @@ function CampusLifeModule() {
   );
 }
 
-function InfoModule() {
+function InfoModule({ onBack }: { onBack: () => void }) {
   const [activeTab, setActiveTab] = useState<'admin' | 'stages' | 'formations'>('admin');
 
   return (
     <div className="space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-purple-600 font-semibold hover:underline mb-4">
+        <ArrowLeft className="w-4 h-4" />
+        Retour au tableau de bord
+      </button>
       <div className="bg-white rounded-xl p-6 shadow-sm">
         <h2 className="text-2xl font-bold mb-6">Information Campus</h2>
 
