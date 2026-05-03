@@ -12,22 +12,22 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-6 shadow-lg">
+      <header className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 md:px-6 py-4 md:py-6 shadow-lg">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-4">
             <button onClick={onBack} className="hover:bg-orange-400 p-2 rounded-lg transition-colors">
-              <ArrowLeft className="w-6 h-6" />
+              <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold">Orange Étudiant</h1>
-              <p className="text-orange-100">Portail Universitaire</p>
+              <h1 className="text-xl md:text-3xl font-bold leading-tight">Orange Étudiant</h1>
+              <p className="text-orange-100 text-sm md:text-base">Portail Universitaire</p>
             </div>
           </div>
-
-          <div className="flex gap-4 overflow-x-auto pb-2">
+ 
+          <div className="flex gap-2 md:gap-4 overflow-x-auto pb-2 scrollbar-hide">
             <button
               onClick={() => setActiveModule('campusData')}
-              className={`px-6 py-3 rounded-lg font-medium whitespace-nowrap transition-all ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-base font-medium whitespace-nowrap transition-all ${
                 activeModule === 'campusData' ? 'bg-white text-orange-600' : 'bg-orange-400 text-white hover:bg-orange-300'
               }`}
             >
@@ -35,7 +35,7 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
             </button>
             <button
               onClick={() => setActiveModule('biblio')}
-              className={`px-6 py-3 rounded-lg font-medium whitespace-nowrap transition-all ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-base font-medium whitespace-nowrap transition-all ${
                 activeModule === 'biblio' ? 'bg-white text-orange-600' : 'bg-orange-400 text-white hover:bg-orange-300'
               }`}
             >
@@ -43,7 +43,7 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
             </button>
             <button
               onClick={() => setActiveModule('campusLife')}
-              className={`px-6 py-3 rounded-lg font-medium whitespace-nowrap transition-all ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-base font-medium whitespace-nowrap transition-all ${
                 activeModule === 'campusLife' ? 'bg-white text-orange-600' : 'bg-orange-400 text-white hover:bg-orange-300'
               }`}
             >
@@ -51,7 +51,7 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
             </button>
             <button
               onClick={() => setActiveModule('info')}
-              className={`px-6 py-3 rounded-lg font-medium whitespace-nowrap transition-all ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-base font-medium whitespace-nowrap transition-all ${
                 activeModule === 'info' ? 'bg-white text-orange-600' : 'bg-orange-400 text-white hover:bg-orange-300'
               }`}
             >
@@ -61,7 +61,7 @@ export function StudentPortal({ onBack }: StudentPortalProps) {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {!activeModule && <DashboardOverview setActiveModule={setActiveModule} />}
         {activeModule === 'campusData' && <CampusDataModule onBack={() => setActiveModule(null)} />}
         {activeModule === 'biblio' && <BiblioModule onBack={() => setActiveModule(null)} />}

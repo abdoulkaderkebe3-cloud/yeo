@@ -38,7 +38,7 @@ export function AuthPage({ onBack, onAuthSuccess }: AuthPageProps) {
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Côté gauche - Information */}
-            <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-12 text-white flex flex-col justify-center">
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-8 md:p-12 text-white flex flex-col justify-center">
               <div className="mb-8">
                 <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                   <GraduationCap className="w-12 h-12 text-white" />
@@ -93,7 +93,7 @@ export function AuthPage({ onBack, onAuthSuccess }: AuthPageProps) {
             </div>
 
             {/* Côté droit - Formulaire */}
-            <div className="p-12">
+            <div className="p-8 md:p-12">
               <div className="mb-8">
                 <div className="flex gap-2 mb-6">
                   <button
